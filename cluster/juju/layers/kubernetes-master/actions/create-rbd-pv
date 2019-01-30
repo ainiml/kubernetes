@@ -194,9 +194,9 @@ def get_monitors():
     # This is kind of hacky. We should be piping this in from juju relations
     with open('/etc/ceph/ceph.conf', 'r') as ceph_conf:
         for line in ceph_conf.readlines():
-            if 'mon host' in line:
+            if 'mon_host' in line:
                 # strip out the key definition
-                hosts = line.lstrip('mon host = ').split(' ')
+                hosts = line.lstrip('mon_host = ').split(' ')
                 for host in hosts:
                     found_hosts.append(host)
     return found_hosts
